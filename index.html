@@ -214,6 +214,10 @@
       font-style: normal;
     }
 
+    .sp-only {
+      display: none;
+    }
+
     .hero-copy {
       max-width: 560px;
       margin: 26px 0 0;
@@ -1168,7 +1172,23 @@
       }
 
       h1 {
-        font-size: clamp(38px, 12.5vw, 54px);
+        font-size: clamp(27px, 7.4vw, 31px);
+      }
+
+      .sp-only {
+        display: inline;
+      }
+
+      .pc-only {
+        display: none;
+      }
+
+      .mobile-one-line {
+        white-space: nowrap;
+      }
+
+      .line-report-title {
+        line-height: 1.38;
       }
 
       .hero-copy {
@@ -1237,6 +1257,15 @@
         font-size: 31px;
       }
 
+      .mobile-tight-title {
+        font-size: clamp(24px, 6.6vw, 26px);
+        letter-spacing: -.06em;
+      }
+
+      .final-mobile-title {
+        font-size: clamp(21px, 5.9vw, 23px);
+      }
+
       .section-lead {
         font-size: 14px;
       }
@@ -1270,6 +1299,12 @@
       .line-panel .btn {
         width: 100%;
         margin-top: 22px;
+      }
+
+      .line-panel h3 {
+        font-size: clamp(19px, 5.2vw, 20px);
+        letter-spacing: -.04em;
+        white-space: nowrap;
       }
 
       .line-panel::after {
@@ -1342,6 +1377,18 @@
         margin-bottom: 8px;
       }
 
+      .footer-copy {
+        display: grid;
+        gap: 4px;
+      }
+
+      .footer-note {
+        display: block;
+        white-space: nowrap;
+        font-size: 10px;
+        letter-spacing: -.03em;
+      }
+
       .mobile-diagnose {
         display: flex;
         align-items: center;
@@ -1385,7 +1432,7 @@
       <div class="container hero-grid">
         <div class="hero-content reveal">
           <p class="hero-kicker"><span>36</span> QUESTIONS / TWO LAYERS</p>
-          <h1>診断結果は、入口。<br>あなたという海は、<br><em>もっと深い。</em></h1>
+          <h1>診断結果は入口<br>あなたという海は<em>もっと深い</em></h1>
           <p class="hero-copy">
             MASKAで見つけた「表の顔」と「本当の核」。<br>
             LINEでは、そのギャップに隠れた魅力や人間関係のヒントを、さらに深く読み解きます。
@@ -1457,7 +1504,7 @@
       <div class="container">
         <div class="reveal">
           <p class="eyebrow">Only on LINE</p>
-          <h2 class="section-title">LINEに届くのは、<br>あなたのための「深層レポート」。</h2>
+          <h2 class="section-title line-report-title">LINEに届くのは、<br>あなたのための<br>「深層心理レポート」</h2>
           <p class="section-lead">
             診断ページでは見えなかった細かな傾向まで、日常で使える言葉にしてお届けします。
           </p>
@@ -1481,7 +1528,7 @@
         </div>
         <div class="line-panel reveal">
           <div>
-            <h3>あなたのタイプの続きを、今すぐ。</h3>
+            <h3>あなたのタイプの続きを今すぐ</h3>
             <p>診断結果を開いたままLINEへ進むとスムーズです。</p>
           </div>
           <a class="btn btn-line" data-line-link href="https://lin.ee/6PwfEo7" target="_blank" rel="noopener">LINEで深層レポートを受け取る</a>
@@ -1539,7 +1586,7 @@
       <div class="container">
         <div class="reveal">
           <p class="eyebrow">How it works</p>
-          <h2 class="section-title">深層レポートの受け取り方。</h2>
+          <h2 class="section-title mobile-one-line mobile-tight-title">深層レポートの受け取り方</h2>
         </div>
         <div class="steps">
           <article class="step reveal">
@@ -1591,7 +1638,7 @@
     <section class="final-cta">
       <div class="container reveal">
         <p class="eyebrow">Dive a little deeper</p>
-        <h2 class="section-title">“本当の自分”は、<br>ひとつの言葉では終わらない。</h2>
+        <h2 class="section-title mobile-tight-title final-mobile-title">“本当の自分”は<br>ひとつの言葉では終わらない</h2>
         <p class="final-copy">あなたの結果の、その先へ。MASKAともう少し深く潜ってみませんか。</p>
         <a class="btn btn-line" data-line-link href="https://lin.ee/6PwfEo7" target="_blank" rel="noopener">無料で結果の続きを見る</a>
       </div>
@@ -1601,7 +1648,10 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">MASKA.</div>
-      <div>© MASKA. All rights reserved.　｜　本コンテンツは自己理解を楽しむためのものです。</div>
+      <div class="footer-copy">
+        <span>© MASKA. All rights reserved.</span>
+        <span class="footer-note">本コンテンツは自己理解を楽しむためのものです。</span>
+      </div>
     </div>
   </footer>
 
