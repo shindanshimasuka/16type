@@ -8,7 +8,7 @@
   <title>MASKA DEEP REPORT｜診断結果の、その先へ。</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@500;600;700&family=Zen+Old+Mincho:wght@700&display=swap" rel="stylesheet">
   <style>
     :root {
       --ink: #17272c;
@@ -212,6 +212,32 @@
     h1 em {
       color: var(--aqua-bright);
       font-style: normal;
+    }
+
+    .deep-accent {
+      display: inline-block;
+      color: transparent;
+      background:
+        linear-gradient(180deg, #f3fff9 0%, #a8f7ed 24%, #34bed4 58%, #0a5079 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter:
+        drop-shadow(0 0 10px rgba(127, 244, 234, .22))
+        drop-shadow(0 16px 22px rgba(0, 12, 26, .54));
+      font-family: "Zen Old Mincho", "Shippori Mincho", serif;
+      font-weight: 700;
+      letter-spacing: .045em;
+      line-height: 1.08;
+    }
+
+    .hero-deep-word {
+      margin-top: .04em;
+      font-size: 1.18em;
+    }
+
+    .report-deep-word {
+      white-space: nowrap;
     }
 
     .sp-only {
@@ -1175,6 +1201,10 @@
         font-size: clamp(27px, 7.4vw, 31px);
       }
 
+      .hero-deep-word {
+        font-size: calc(1em + 6px);
+      }
+
       .sp-only {
         display: inline;
       }
@@ -1188,7 +1218,12 @@
       }
 
       .line-report-title {
+        font-size: clamp(28px, 7.8vw, 31px);
         line-height: 1.38;
+      }
+
+      .report-deep-word {
+        letter-spacing: .015em;
       }
 
       .hero-copy {
@@ -1432,7 +1467,7 @@
       <div class="container hero-grid">
         <div class="hero-content reveal">
           <p class="hero-kicker"><span>36</span> QUESTIONS / TWO LAYERS</p>
-          <h1>診断結果は入口<br>あなたという海は<em>もっと深い</em></h1>
+          <h1>診断結果は入り口<br>あなたという海は<br><em class="deep-accent hero-deep-word">もっと深い</em></h1>
           <p class="hero-copy">
             MASKAで見つけた「表の顔」と「本当の核」。<br>
             LINEでは、そのギャップに隠れた魅力や人間関係のヒントを、さらに深く読み解きます。
@@ -1504,7 +1539,7 @@
       <div class="container">
         <div class="reveal">
           <p class="eyebrow">Only on LINE</p>
-          <h2 class="section-title line-report-title">LINEに届くのは、<br>あなたのための<br>「深層心理レポート」</h2>
+          <h2 class="section-title line-report-title">LINEに届くのは、<br>あなたのための<br>「<span class="deep-accent report-deep-word">深層心理レポート</span>」</h2>
           <p class="section-lead">
             診断ページでは見えなかった細かな傾向まで、日常で使える言葉にしてお届けします。
           </p>
