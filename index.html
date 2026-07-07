@@ -1,0 +1,1652 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071a22">
+  <meta name="description" content="MASKAの診断結果を、LINEでもっと深く。表層と深層のギャップから、あなたらしさと人間関係のヒントを読み解きます。">
+  <title>MASKA DEEP REPORT｜診断結果の、その先へ。</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #17272c;
+      --deep: #06171e;
+      --deep-2: #092933;
+      --deep-3: #104556;
+      --cream: #fbfaf7;
+      --paper: #f2eee5;
+      --aqua: #88e2d1;
+      --aqua-bright: #b9f5e8;
+      --coral: #ef8a7b;
+      --line: #06c755;
+      --muted: #66777a;
+      --radius: 28px;
+      --shadow: 0 24px 70px rgba(2, 19, 25, .16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: "Noto Sans JP", sans-serif;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 16px;
+      color: #277568;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 28px;
+      height: 1px;
+      content: "";
+      background: currentColor;
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: "Shippori Mincho", serif;
+      font-size: clamp(30px, 4vw, 52px);
+      font-weight: 600;
+      line-height: 1.35;
+      letter-spacing: .02em;
+    }
+
+    .section-lead {
+      max-width: 680px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .site-header {
+      position: absolute;
+      z-index: 20;
+      inset: 0 0 auto;
+      color: #fff;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 84px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .brand-main {
+      font-family: "Shippori Mincho", serif;
+      font-size: 25px;
+      font-weight: 700;
+      letter-spacing: .12em;
+    }
+
+    .brand-sub {
+      color: rgba(255, 255, 255, .58);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .18em;
+    }
+
+    .header-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, .82);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .header-link::after {
+      content: "↗";
+    }
+
+    .hero {
+      position: relative;
+      min-height: 790px;
+      padding: 170px 0 110px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 78% 20%, rgba(78, 199, 182, .22), transparent 29%),
+        radial-gradient(circle at 18% 84%, rgba(35, 115, 139, .3), transparent 35%),
+        linear-gradient(145deg, #06151c 0%, #0a2933 54%, #071a22 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      content: "";
+      opacity: .14;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.12fr .88fr;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .hero-kicker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 20px;
+      color: var(--aqua);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .2em;
+    }
+
+    .hero-kicker span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border: 1px solid rgba(136, 226, 209, .45);
+      border-radius: 50%;
+      font-size: 11px;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Shippori Mincho", serif;
+      font-size: clamp(42px, 5vw, 60px);
+      font-weight: 600;
+      line-height: 1.26;
+      letter-spacing: .02em;
+    }
+
+    h1 em {
+      color: var(--aqua-bright);
+      font-style: normal;
+    }
+
+    .hero-copy {
+      max-width: 560px;
+      margin: 26px 0 0;
+      color: rgba(255, 255, 255, .73);
+      font-size: 16px;
+      line-height: 2;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 62px;
+      padding: 0 26px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.4;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-line {
+      color: #fff;
+      background: var(--line);
+      box-shadow: 0 14px 40px rgba(6, 199, 85, .24);
+    }
+
+    .btn-diagnose {
+      color: var(--deep);
+      background: var(--aqua-bright);
+      box-shadow: 0 14px 40px rgba(136, 226, 209, .18);
+    }
+
+    .btn-diagnose::after {
+      display: grid;
+      place-items: center;
+      width: 25px;
+      height: 25px;
+      content: "→";
+      border: 1px solid rgba(6, 23, 30, .25);
+      border-radius: 50%;
+      font-size: 12px;
+    }
+
+    .btn-line::before {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      content: "LINE";
+      border-radius: 50%;
+      color: var(--line);
+      background: #fff;
+      font-size: 7px;
+      font-weight: 900;
+    }
+
+    .btn-ghost {
+      min-height: auto;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .3);
+      border-radius: 0;
+      color: rgba(255, 255, 255, .8);
+      font-size: 13px;
+    }
+
+    .hero-note {
+      margin-top: 14px;
+      color: rgba(255, 255, 255, .47);
+      font-size: 11px;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 510px;
+    }
+
+    .result-card {
+      position: absolute;
+      z-index: 3;
+      top: 46px;
+      left: 50%;
+      width: min(390px, 83%);
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 32px;
+      background: rgba(247, 247, 242, .96);
+      box-shadow: 0 40px 90px rgba(0, 0, 0, .35);
+      color: var(--ink);
+      transform: translateX(-50%) rotate(2.5deg);
+      backdrop-filter: blur(18px);
+    }
+
+    .result-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #78888a;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+    }
+
+    .result-badge {
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #226358;
+      background: #ddf3ed;
+      letter-spacing: .04em;
+    }
+
+    .result-image-wrap {
+      position: relative;
+      display: grid;
+      place-items: center;
+      height: 230px;
+      margin: 12px 0 8px;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(104, 199, 183, .28), transparent 46%),
+        linear-gradient(160deg, #e7efea, #dfe8e4);
+      overflow: hidden;
+    }
+
+    .result-image-wrap::after {
+      position: absolute;
+      right: -24px;
+      bottom: -55px;
+      width: 180px;
+      height: 180px;
+      content: "";
+      border: 1px solid rgba(19, 93, 88, .12);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 24px rgba(19, 93, 88, .04),
+        0 0 0 48px rgba(19, 93, 88, .025);
+    }
+
+    .result-image {
+      position: relative;
+      z-index: 2;
+      width: 78%;
+      height: 88%;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 22px rgba(13, 52, 57, .18));
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .result-code {
+      margin: 0;
+      color: #318071;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .15em;
+    }
+
+    .result-name {
+      margin: 3px 0 0;
+      font-family: "Shippori Mincho", serif;
+      font-size: 25px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .result-quote {
+      margin: 7px 0 0;
+      color: #5f6e70;
+      font-family: "Shippori Mincho", serif;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .depth-label {
+      position: absolute;
+      z-index: 1;
+      left: 2%;
+      color: rgba(255, 255, 255, .28);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      writing-mode: vertical-rl;
+    }
+
+    .depth-label.top {
+      top: 30px;
+    }
+
+    .depth-label.bottom {
+      bottom: 25px;
+    }
+
+    .depth-line {
+      position: absolute;
+      z-index: 0;
+      top: 36px;
+      bottom: 20px;
+      left: calc(2% + 23px);
+      width: 1px;
+      background: linear-gradient(rgba(255, 255, 255, .24), rgba(255, 255, 255, .02));
+    }
+
+    .fish {
+      position: absolute;
+      z-index: 2;
+      width: 130px;
+      opacity: .82;
+      filter: drop-shadow(0 18px 24px rgba(0, 0, 0, .23));
+    }
+
+    .fish-one {
+      top: -2px;
+      right: 2%;
+      transform: rotate(-8deg);
+      animation: swim-small 8s ease-in-out infinite;
+    }
+
+    .fish-two {
+      right: -3%;
+      bottom: 10px;
+      width: 145px;
+      transform: rotate(9deg);
+      animation: swim-small 9s 1.4s ease-in-out infinite;
+    }
+
+    .fish-three {
+      bottom: 24px;
+      left: -5%;
+      width: 116px;
+      transform: rotate(-9deg);
+      animation: swim-small 7.2s .4s ease-in-out infinite;
+    }
+
+    .bubble {
+      position: absolute;
+      z-index: 1;
+      width: 8px;
+      height: 8px;
+      border: 1px solid rgba(179, 240, 229, .4);
+      border-radius: 50%;
+      animation: bubble 8s linear infinite;
+    }
+
+    .b1 { right: 12%; bottom: 10%; }
+    .b2 { right: 27%; bottom: 3%; width: 13px; height: 13px; animation-delay: 2.1s; }
+    .b3 { left: 13%; bottom: 14%; width: 5px; height: 5px; animation-delay: 4.3s; }
+
+    .wave {
+      position: absolute;
+      z-index: 4;
+      right: -5%;
+      bottom: -85px;
+      left: -5%;
+      height: 150px;
+      border-radius: 50% 50% 0 0 / 32% 32% 0 0;
+      background: var(--cream);
+      transform: rotate(-1.4deg);
+    }
+
+    .intro {
+      padding: 118px 0 126px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 90px;
+    }
+
+    .intro-sticky {
+      position: sticky;
+      top: 70px;
+      align-self: start;
+    }
+
+    .gap-card {
+      padding: 34px;
+      border: 1px solid #e4e2db;
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 18px 50px rgba(29, 54, 59, .07);
+    }
+
+    .gap-card + .gap-card {
+      margin-top: 18px;
+    }
+
+    .gap-card:nth-child(2) {
+      margin-left: 54px;
+    }
+
+    .gap-card:nth-child(3) {
+      margin-right: 54px;
+    }
+
+    .gap-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 28px;
+      border-radius: 50%;
+      color: #247266;
+      background: #e2f5ef;
+      font-family: "Shippori Mincho", serif;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .gap-card h3 {
+      margin: 0;
+      font-family: "Shippori Mincho", serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .gap-card p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .deep-report {
+      position: relative;
+      padding: 128px 0;
+      color: #fff;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(75, 180, 166, .13), transparent 27%),
+        linear-gradient(160deg, #071c24, #06151c);
+      overflow: hidden;
+    }
+
+    .deep-report::before {
+      position: absolute;
+      top: -350px;
+      left: 50%;
+      width: 900px;
+      height: 900px;
+      content: "";
+      border: 1px solid rgba(133, 225, 208, .08);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 80px rgba(133, 225, 208, .025),
+        0 0 0 160px rgba(133, 225, 208, .018);
+      transform: translateX(-50%);
+    }
+
+    .deep-report .eyebrow {
+      color: var(--aqua);
+    }
+
+    .deep-report .section-title {
+      max-width: 750px;
+    }
+
+    .deep-report .section-lead {
+      color: rgba(255, 255, 255, .62);
+    }
+
+    .report-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 60px;
+    }
+
+    .report-item {
+      min-height: 310px;
+      padding: 32px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 26px;
+      background: rgba(255, 255, 255, .055);
+      backdrop-filter: blur(12px);
+      transition: border-color .25s ease, transform .25s ease;
+    }
+
+    .report-item:hover {
+      border-color: rgba(136, 226, 209, .38);
+      transform: translateY(-5px);
+    }
+
+    .report-icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 42px;
+      border: 1px solid rgba(136, 226, 209, .28);
+      border-radius: 50%;
+      color: var(--aqua);
+      font-family: "Shippori Mincho", serif;
+      font-size: 18px;
+    }
+
+    .report-item h3 {
+      margin: 0;
+      font-family: "Shippori Mincho", serif;
+      font-size: 23px;
+      font-weight: 600;
+    }
+
+    .report-item p {
+      margin: 14px 0 0;
+      color: rgba(255, 255, 255, .56);
+      font-size: 14px;
+    }
+
+    .line-panel {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 30px;
+      margin-top: 72px;
+      padding: 42px 46px;
+      border-radius: 28px;
+      color: var(--ink);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .line-panel::after {
+      position: absolute;
+      top: -70px;
+      right: 200px;
+      content: "01  /  02  /  03";
+      color: rgba(255, 255, 255, .22);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .24em;
+    }
+
+    .line-panel h3 {
+      margin: 0;
+      font-family: "Shippori Mincho", serif;
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 600;
+    }
+
+    .line-panel p {
+      margin: 8px 0 0;
+      color: #69787a;
+      font-size: 13px;
+    }
+
+    .diagnoses {
+      padding: 130px 0;
+      background: var(--paper);
+    }
+
+    .diagnosis-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .diagnosis-head .section-lead {
+      max-width: 420px;
+      margin: 0;
+      text-align: right;
+    }
+
+    .diagnosis-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+      margin-top: 58px;
+    }
+
+    .diagnosis-card {
+      position: relative;
+      min-height: 430px;
+      padding: 34px;
+      border-radius: 30px;
+      overflow: hidden;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .diagnosis-card:hover {
+      box-shadow: 0 24px 70px rgba(22, 51, 57, .15);
+      transform: translateY(-6px);
+    }
+
+    .diagnosis-card.persona {
+      grid-column: span 7;
+      color: #fff;
+      background: linear-gradient(145deg, #0b3846, #071d26);
+    }
+
+    .diagnosis-card.love {
+      grid-column: span 5;
+      color: #fff;
+      background: linear-gradient(145deg, #6d3441, #351f2c);
+    }
+
+    .diagnosis-card.compatibility {
+      grid-column: span 5;
+      min-height: 340px;
+      background: #fff;
+    }
+
+    .diagnosis-card.fortune {
+      grid-column: span 7;
+      min-height: 340px;
+      background: #dbeae5;
+    }
+
+    .card-tag {
+      display: inline-flex;
+      padding: 7px 11px;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      opacity: .65;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+    }
+
+    .diagnosis-card h3 {
+      position: relative;
+      z-index: 2;
+      max-width: 470px;
+      margin: 24px 0 0;
+      font-family: "Shippori Mincho", serif;
+      font-size: clamp(27px, 3vw, 38px);
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .diagnosis-card p {
+      position: relative;
+      z-index: 2;
+      max-width: 420px;
+      margin: 14px 0 0;
+      opacity: .68;
+      font-size: 13px;
+    }
+
+    .card-link {
+      position: absolute;
+      z-index: 3;
+      right: 30px;
+      bottom: 28px;
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      font-size: 18px;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .diagnosis-card:hover .card-link {
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .card-fish {
+      position: absolute;
+      right: 45px;
+      bottom: 48px;
+      width: 220px;
+      height: 220px;
+      object-fit: contain;
+      opacity: .78;
+      clip-path: circle(44% at 50% 50%);
+      filter: drop-shadow(0 24px 28px rgba(0, 0, 0, .2));
+    }
+
+    .diagnosis-card.love .card-fish {
+      right: -5px;
+      bottom: 48px;
+      width: 185px;
+      opacity: .5;
+      filter: sepia(.25) saturate(.8) hue-rotate(300deg) drop-shadow(0 24px 28px rgba(0, 0, 0, .2));
+    }
+
+    .orbit {
+      position: absolute;
+      right: 54px;
+      bottom: 38px;
+      width: 165px;
+      height: 165px;
+      border: 1px solid rgba(24, 54, 61, .14);
+      border-radius: 50%;
+    }
+
+    .orbit::before,
+    .orbit::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      content: "";
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .orbit::before {
+      width: 82px;
+      height: 82px;
+      border: 1px solid rgba(24, 54, 61, .12);
+    }
+
+    .orbit::after {
+      width: 22px;
+      height: 22px;
+      background: var(--coral);
+      box-shadow: 70px -40px 0 -4px #4a9d90, -62px 30px 0 -6px #385d68;
+    }
+
+    .how {
+      padding: 128px 0;
+      background: #fff;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 60px;
+      border-top: 1px solid #dfe3df;
+    }
+
+    .step {
+      position: relative;
+      padding: 38px 40px 12px 0;
+    }
+
+    .step:not(:last-child)::after {
+      position: absolute;
+      top: -4px;
+      right: 30px;
+      color: #9eaaa8;
+      background: #fff;
+      content: "→";
+      font-size: 12px;
+    }
+
+    .step-num {
+      color: #2a776a;
+      font-family: "Shippori Mincho", serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .12em;
+    }
+
+    .step h3 {
+      margin: 18px 0 0;
+      font-family: "Shippori Mincho", serif;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .step p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .faq {
+      padding: 120px 0;
+      background: var(--cream);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: .65fr 1.35fr;
+      gap: 90px;
+    }
+
+    .faq-list {
+      border-top: 1px solid #d9ddd8;
+    }
+
+    details {
+      border-bottom: 1px solid #d9ddd8;
+    }
+
+    summary {
+      position: relative;
+      padding: 25px 48px 25px 0;
+      cursor: pointer;
+      list-style: none;
+      font-family: "Shippori Mincho", serif;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      position: absolute;
+      top: 24px;
+      right: 4px;
+      content: "＋";
+      color: #34786d;
+      font-family: sans-serif;
+      font-weight: 400;
+      transition: transform .2s ease;
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    details p {
+      margin: -6px 0 24px;
+      padding-right: 50px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .final-cta {
+      position: relative;
+      padding: 140px 0 150px;
+      color: #fff;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(76, 196, 179, .2), transparent 36%),
+        linear-gradient(#082631, #05161d);
+      overflow: hidden;
+    }
+
+    .final-cta::before,
+    .final-cta::after {
+      position: absolute;
+      content: "";
+      border: 1px solid rgba(137, 226, 210, .08);
+      border-radius: 50%;
+    }
+
+    .final-cta::before {
+      top: -220px;
+      left: -100px;
+      width: 520px;
+      height: 520px;
+    }
+
+    .final-cta::after {
+      right: -120px;
+      bottom: -320px;
+      width: 650px;
+      height: 650px;
+    }
+
+    .final-cta .eyebrow {
+      justify-content: center;
+      color: var(--aqua);
+    }
+
+    .final-cta .section-title {
+      position: relative;
+      z-index: 2;
+    }
+
+    .final-copy {
+      position: relative;
+      z-index: 2;
+      margin: 22px auto 34px;
+      color: rgba(255, 255, 255, .62);
+      font-size: 15px;
+    }
+
+    .final-cta .btn {
+      position: relative;
+      z-index: 2;
+    }
+
+    .footer {
+      padding: 32px 0;
+      color: #8b9697;
+      background: #031016;
+      font-size: 11px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-brand {
+      color: #fff;
+      font-family: "Shippori Mincho", serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: .12em;
+    }
+
+    .mobile-diagnose {
+      position: fixed;
+      z-index: 50;
+      right: 14px;
+      bottom: 14px;
+      left: 14px;
+      display: none;
+      min-height: 58px;
+      border-radius: 999px;
+      color: var(--deep);
+      background: var(--aqua-bright);
+      box-shadow: 0 12px 34px rgba(0, 0, 0, .25);
+      font-size: 14px;
+      font-weight: 700;
+      transition: opacity .25s ease, transform .25s ease;
+    }
+
+    .mobile-diagnose.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(18px);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+    }
+
+    @keyframes swim-small {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 10px -8px; }
+    }
+
+    @keyframes bubble {
+      0% { transform: translateY(0) scale(.8); opacity: 0; }
+      15% { opacity: 1; }
+      85% { opacity: .45; }
+      100% { transform: translateY(-360px) scale(1.25); opacity: 0; }
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        width: min(100% - 36px, 700px);
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 140px 0 120px;
+      }
+
+      .hero-grid,
+      .intro-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        gap: 56px;
+      }
+
+      .hero-copy {
+        max-width: 640px;
+      }
+
+      .hero-visual {
+        min-height: 560px;
+      }
+
+      .intro-grid,
+      .faq-grid {
+        gap: 50px;
+      }
+
+      .intro-sticky {
+        position: static;
+      }
+
+      .report-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .report-item {
+        min-height: 0;
+      }
+
+      .report-icon {
+        margin-bottom: 26px;
+      }
+
+      .diagnosis-head {
+        display: block;
+      }
+
+      .diagnosis-head .section-lead {
+        margin-top: 20px;
+        text-align: left;
+      }
+
+      .diagnosis-card.persona,
+      .diagnosis-card.love,
+      .diagnosis-card.compatibility,
+      .diagnosis-card.fortune {
+        grid-column: span 12;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding-bottom: 82px;
+      }
+
+      .container {
+        width: calc(100% - 30px);
+      }
+
+      .header-inner {
+        height: 70px;
+      }
+
+      .brand-main {
+        font-size: 21px;
+      }
+
+      .brand-sub,
+      .header-link {
+        display: none;
+      }
+
+      .hero {
+        padding: 118px 0 90px;
+      }
+
+      h1 {
+        font-size: clamp(38px, 12.5vw, 54px);
+      }
+
+      .hero-copy {
+        margin-top: 20px;
+        font-size: 14px;
+      }
+
+      .hero-actions {
+        display: block;
+        margin-top: 28px;
+      }
+
+      .hero-actions .btn-diagnose {
+        width: 100%;
+      }
+
+      .hero-actions .btn-ghost {
+        display: flex;
+        width: max-content;
+        margin: 16px auto 0;
+      }
+
+      .hero-note {
+        text-align: center;
+      }
+
+      .hero-visual {
+        min-height: 455px;
+      }
+
+      .result-card {
+        top: 30px;
+        width: 88%;
+        padding: 17px;
+      }
+
+      .result-image-wrap {
+        height: 190px;
+      }
+
+      .result-name {
+        font-size: 22px;
+      }
+
+      .fish {
+        width: 95px;
+      }
+
+      .fish-two {
+        width: 110px;
+      }
+
+      .fish-three {
+        width: 85px;
+      }
+
+      .intro,
+      .deep-report,
+      .diagnoses,
+      .how,
+      .faq {
+        padding: 90px 0;
+      }
+
+      .section-title {
+        font-size: 31px;
+      }
+
+      .section-lead {
+        font-size: 14px;
+      }
+
+      .gap-card {
+        padding: 25px;
+      }
+
+      .gap-card:nth-child(2) {
+        margin-left: 18px;
+      }
+
+      .gap-card:nth-child(3) {
+        margin-right: 18px;
+      }
+
+      .report-grid {
+        margin-top: 42px;
+      }
+
+      .report-item {
+        padding: 26px;
+      }
+
+      .line-panel {
+        display: block;
+        margin-top: 48px;
+        padding: 30px 24px;
+      }
+
+      .line-panel .btn {
+        width: 100%;
+        margin-top: 22px;
+      }
+
+      .line-panel::after {
+        display: none;
+      }
+
+      .diagnosis-grid {
+        margin-top: 40px;
+      }
+
+      .diagnosis-card,
+      .diagnosis-card.compatibility,
+      .diagnosis-card.fortune {
+        min-height: 380px;
+        padding: 26px;
+      }
+
+      .diagnosis-card h3 {
+        font-size: 25px;
+      }
+
+      .card-fish {
+        right: 10px;
+        bottom: 52px;
+        width: 160px;
+        height: 160px;
+      }
+
+      .diagnosis-card.love .card-fish {
+        width: 145px;
+      }
+
+      .orbit {
+        right: 25px;
+        bottom: 62px;
+        width: 130px;
+        height: 130px;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        border-bottom: 1px solid #dfe3df;
+      }
+
+      .step:not(:last-child)::after {
+        display: none;
+      }
+
+      details p {
+        padding-right: 10px;
+      }
+
+      .final-cta {
+        padding: 100px 0;
+      }
+
+      .footer {
+        padding-bottom: 36px;
+      }
+
+      .footer-inner {
+        display: block;
+        text-align: center;
+      }
+
+      .footer-brand {
+        margin-bottom: 8px;
+      }
+
+      .mobile-diagnose {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="MASKA DEEP REPORT トップへ">
+        <span class="brand-main">MASKA.</span>
+        <span class="brand-sub">DEEP REPORT</span>
+      </a>
+      <a class="header-link" data-diagnosis-link href="https://maska.jp/persona/quiz" target="_blank" rel="noopener">無料で診断する</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <p class="hero-kicker"><span>36</span> QUESTIONS / TWO LAYERS</p>
+          <h1>診断結果は、入口。<br>あなたという海は、<br><em>もっと深い。</em></h1>
+          <p class="hero-copy">
+            MASKAで見つけた「表の顔」と「本当の核」。<br>
+            LINEでは、そのギャップに隠れた魅力や人間関係のヒントを、さらに深く読み解きます。
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-diagnose" data-diagnosis-link href="https://maska.jp/persona/quiz" target="_blank" rel="noopener">まずは無料で診断する</a>
+            <a class="btn btn-ghost" data-line-link href="https://lin.ee/6PwfEo7" target="_blank" rel="noopener">診断済みの方：結果の続きを見る ↗</a>
+          </div>
+          <p class="hero-note">診断は無料です。結果はその場ですぐにわかります。</p>
+        </div>
+
+        <div class="hero-visual reveal" aria-label="MASKA診断結果のイメージ">
+          <span class="depth-label top">SURFACE / 表層</span>
+          <span class="depth-label bottom">CORE / 深層</span>
+          <span class="depth-line"></span>
+          <div class="result-card">
+            <div class="result-top">
+              <span>YOUR MASKA TYPE</span>
+              <span class="result-badge">DEEP REPORT</span>
+            </div>
+            <div class="result-image-wrap">
+              <img class="result-image" src="https://maska.jp/ocean/EHMF.png" alt="イルカの診断キャラクター">
+            </div>
+            <p class="result-code">EHMF / DOLPHIN</p>
+            <p class="result-name">陽だまりの調整役<br>× 守るための牙</p>
+            <p class="result-quote">“笑顔の奥に、守るための強さ。”</p>
+          </div>
+          <img class="fish fish-one" src="https://maska.jp/ocean/RPSW.png" alt="">
+          <img class="fish fish-two" src="https://maska.jp/ocean/EPMW.png" alt="">
+          <img class="fish fish-three" src="https://maska.jp/ocean/RHMF.png" alt="">
+          <span class="bubble b1"></span>
+          <span class="bubble b2"></span>
+          <span class="bubble b3"></span>
+        </div>
+      </div>
+      <div class="wave"></div>
+    </section>
+
+    <section class="intro" id="about">
+      <div class="container intro-grid">
+        <div class="intro-sticky reveal">
+          <p class="eyebrow">Beyond your result</p>
+          <h2 class="section-title">「当たってる」で<br>終わらせない診断へ。</h2>
+          <p class="section-lead">
+            ひとつのタイプ名だけでは語りきれないのが、人の面白さ。MASKAは、外から見える自分と、心の奥にいる自分、その両方を手がかりにします。
+          </p>
+        </div>
+        <div>
+          <article class="gap-card reveal">
+            <span class="gap-number">01</span>
+            <h3>なぜ、その海洋生物なのか</h3>
+            <p>キャラクターの特徴と、あなたの表層・深層タイプのつながりをわかりやすく読み解きます。</p>
+          </article>
+          <article class="gap-card reveal">
+            <span class="gap-number">02</span>
+            <h3>ギャップは、欠点ではなく魅力</h3>
+            <p>「こう見られやすい」と「本当はこうしたい」の間にある、あなただけの強みを見つけます。</p>
+          </article>
+          <article class="gap-card reveal">
+            <span class="gap-number">03</span>
+            <h3>人間関係に活かせるヒントへ</h3>
+            <p>恋人・友人・仕事仲間との違いを、相性の良し悪しではなく“付き合い方のコツ”として知れます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="deep-report" id="line">
+      <div class="container">
+        <div class="reveal">
+          <p class="eyebrow">Only on LINE</p>
+          <h2 class="section-title">LINEに届くのは、<br>あなたのための「深層レポート」。</h2>
+          <p class="section-lead">
+            診断ページでは見えなかった細かな傾向まで、日常で使える言葉にしてお届けします。
+          </p>
+        </div>
+        <div class="report-grid">
+          <article class="report-item reveal">
+            <span class="report-icon">深</span>
+            <h3>タイプを深掘り</h3>
+            <p>表層と深層の組み合わせから、行動パターン・心が満たされる瞬間・つまずきやすい場面を読み解きます。</p>
+          </article>
+          <article class="report-item reveal">
+            <span class="report-icon">縁</span>
+            <h3>相性を読み解く</h3>
+            <p>気になる相手との違いを知って、伝わりやすい言葉や心地よい距離感のヒントを見つけられます。</p>
+          </article>
+          <article class="report-item reveal">
+            <span class="report-icon">新</span>
+            <h3>新しい診断に出会う</h3>
+            <p>恋愛診断や相性コンテンツ、季節の占いなど、次に試したくなるコンテンツをいち早くご案内します。</p>
+          </article>
+        </div>
+        <div class="line-panel reveal">
+          <div>
+            <h3>あなたのタイプの続きを、今すぐ。</h3>
+            <p>診断結果を開いたままLINEへ進むとスムーズです。</p>
+          </div>
+          <a class="btn btn-line" data-line-link href="https://lin.ee/6PwfEo7" target="_blank" rel="noopener">LINEで深層レポートを受け取る</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="diagnoses" id="diagnoses">
+      <div class="container">
+        <div class="diagnosis-head reveal">
+          <div>
+            <p class="eyebrow">Explore your ocean</p>
+            <h2 class="section-title">まだ知らない自分へ、<br>潜ってみよう。</h2>
+          </div>
+          <p class="section-lead">気分やテーマに合わせて、いろいろな角度から自分をのぞいてみてください。</p>
+        </div>
+
+        <div class="diagnosis-grid">
+          <a class="diagnosis-card persona reveal" href="https://maska.jp/persona/quiz" target="_blank" rel="noopener">
+            <span class="card-tag">PERSONALITY</span>
+            <h3>表の顔と本当の核を知る<br>MASKA 性格診断</h3>
+            <p>36の質問から、あなたの表層心理と深層心理を16タイプの海洋生物で表します。</p>
+            <img class="card-fish" src="https://maska.jp/ocean/EPSW.png" alt="チョウチンアンコウ">
+            <span class="card-link" aria-hidden="true">↗</span>
+          </a>
+
+          <a class="diagnosis-card love reveal" href="https://maska.jp/love/" target="_blank" rel="noopener">
+            <span class="card-tag">LOVE</span>
+            <h3>恋をすると現れる、<br>もうひとりの自分。</h3>
+            <p>惹かれ方、愛し方、心の奥で求めている関係。恋愛の表層と深層をのぞく診断です。</p>
+            <img class="card-fish" src="https://maska.jp/ocean/EPMW.png" alt="タツノオトシゴ">
+            <span class="card-link" aria-hidden="true">↗</span>
+          </a>
+
+          <a class="diagnosis-card compatibility reveal" href="https://maska.jp/persona/types" target="_blank" rel="noopener">
+            <span class="card-tag">COMPATIBILITY</span>
+            <h3>16タイプの相性を<br>のぞいてみる。</h3>
+            <p>自分と相手の海洋生物から、関係性の特徴や心地よい付き合い方をチェック。</p>
+            <div class="orbit" aria-hidden="true"></div>
+            <span class="card-link" aria-hidden="true">↗</span>
+          </a>
+
+          <a class="diagnosis-card fortune reveal" data-line-link href="https://lin.ee/6PwfEo7" target="_blank" rel="noopener">
+            <span class="card-tag">FORTUNE / COMING NEXT</span>
+            <h3>今日の心の潮目を読む、<br>小さな深海占い。</h3>
+            <p>新しい診断や占いはLINEで先行案内。気になるコンテンツを見逃さず楽しめます。</p>
+            <img class="card-fish" src="https://maska.jp/ocean/RPMW.png" alt="クラゲ">
+            <span class="card-link" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="how">
+      <div class="container">
+        <div class="reveal">
+          <p class="eyebrow">How it works</p>
+          <h2 class="section-title">深層レポートの受け取り方。</h2>
+        </div>
+        <div class="steps">
+          <article class="step reveal">
+            <span class="step-num">STEP 01</span>
+            <h3>MASKAを診断</h3>
+            <p>通常版または恋愛版の質問に答えて、あなたの海洋生物タイプを確認します。</p>
+          </article>
+          <article class="step reveal">
+            <span class="step-num">STEP 02</span>
+            <h3>LINEを友だち追加</h3>
+            <p>診断結果ページまたはこのページのボタンから、MASKA公式LINEを追加します。</p>
+          </article>
+          <article class="step reveal">
+            <span class="step-num">STEP 03</span>
+            <h3>結果の続きを受け取る</h3>
+            <p>LINEの案内に沿って、あなたのタイプに合わせた深い読み解きを楽しめます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="container faq-grid">
+        <div class="reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2 class="section-title">よくある質問。</h2>
+        </div>
+        <div class="faq-list reveal">
+          <details>
+            <summary>LINEの友だち追加は無料ですか？</summary>
+            <p>はい、友だち追加は無料です。通信にかかる費用はご利用の通信環境により異なります。</p>
+          </details>
+          <details>
+            <summary>診断を受けていなくても登録できますか？</summary>
+            <p>登録できます。より自分に合った内容を楽しむために、先にMASKAの診断を受けておくのがおすすめです。</p>
+          </details>
+          <details>
+            <summary>診断結果は変わることがありますか？</summary>
+            <p>その時の環境や心境によって回答が変わることもあります。少し時間をあけて再診断すると、新しい自分の一面に気づけるかもしれません。</p>
+          </details>
+          <details>
+            <summary>恋愛版と通常版は何が違いますか？</summary>
+            <p>通常版は日常における表層・深層の傾向を、恋愛版は恋をしたときに現れやすい行動や本音を中心に読み解きます。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container reveal">
+        <p class="eyebrow">Dive a little deeper</p>
+        <h2 class="section-title">“本当の自分”は、<br>ひとつの言葉では終わらない。</h2>
+        <p class="final-copy">あなたの結果の、その先へ。MASKAともう少し深く潜ってみませんか。</p>
+        <a class="btn btn-line" data-line-link href="https://lin.ee/6PwfEo7" target="_blank" rel="noopener">無料で結果の続きを見る</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">MASKA.</div>
+      <div>© MASKA. All rights reserved.　｜　本コンテンツは自己理解を楽しむためのものです。</div>
+    </div>
+  </footer>
+
+  <a class="mobile-diagnose" data-diagnosis-link href="https://maska.jp/persona/quiz" target="_blank" rel="noopener">まずは無料で診断する →</a>
+
+  <script>
+    // 各リンクを変更する場合は、この2行だけ差し替えてください。
+    const LINE_URL = "https://lin.ee/6PwfEo7";
+    const DIAGNOSIS_URL = "https://maska.jp/persona/quiz";
+
+    document.querySelectorAll("[data-line-link]").forEach((link) => {
+      link.href = LINE_URL;
+    });
+
+    document.querySelectorAll("[data-diagnosis-link]").forEach((link) => {
+      link.href = DIAGNOSIS_URL;
+    });
+
+    const mobileDiagnosisCta = document.querySelector(".mobile-diagnose");
+    const heroDiagnosisCta = document.querySelector(".hero-actions .btn-diagnose");
+
+    if ("IntersectionObserver" in window && mobileDiagnosisCta && heroDiagnosisCta) {
+      const ctaObserver = new IntersectionObserver(([entry]) => {
+        mobileDiagnosisCta.classList.toggle("is-hidden", entry.isIntersecting);
+      }, { threshold: 0.2 });
+
+      ctaObserver.observe(heroDiagnosisCta);
+    }
+
+    const revealItems = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
+  </script>
+</body>
+</html>
